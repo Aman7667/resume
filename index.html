@@ -1,307 +1,406 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman Kumar Yadav - Digital Marketing Specialist</title>
+    <title>Aman Kumar Yadav | Full-Stack Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
+        :root {
+            --primary: #22d3ee;
+            --bg-dark: #0f172a;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            overflow-x: hidden;
         }
+
         .bg-grid {
-            background-image:
-                linear-gradient(to right, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(to right, rgba(34, 211, 238, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-card:hover .demo-btn { opacity: 1; transform: translateY(0); }
+        
+        .glow-blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(34, 211, 238, 0.3);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
 
-    <!-- Header -->
-    <header class="bg-gray-900/80 backdrop-blur-md sticky top-0 z-50">
+<body class="relative">
+
+    <div class="glow-blob top-0 right-0 w-[500px] h-[500px]"></div>
+    <div class="glow-blob bottom-0 left-0 w-[600px] h-[600px]"></div>
+
+    <header class="fixed w-full top-0 z-50 glass">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-cyan-400">Aman Kumar Yadav</a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#about" class="hover:text-cyan-400 transition-colors duration-300">About</a>
-                <a href="#skills" class="hover:text-cyan-400 transition-colors duration-300">Skills</a>
-                <a href="#experience" class="hover:text-cyan-400 transition-colors duration-300">Experience</a>
-                <a href="#education" class="hover:text-cyan-400 transition-colors duration-300">Education</a>
-                <a href="#certificates" class="hover:text-cyan-400 transition-colors duration-300">Certificates</a>
-                <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105">Contact Me</a>
+            <a href="#" class="text-2xl font-black tracking-tighter text-white">
+                AMAN<span class="text-cyan-400">.TECH</span>
+            </a>
+            <div class="hidden lg:flex space-x-8 items-center font-medium text-xs uppercase tracking-[0.2em]">
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Demos</a>
+                <a href="#data-projects" class="hover:text-cyan-400 transition-colors">Analysis</a>
+                <a href="#certificates" class="hover:text-cyan-400 transition-colors">Credentials</a>
+                <a href="#contact" class="px-5 py-2 rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 transition-all">Hire Me</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-lucide="menu"></i>
-            </button>
+            <button id="menu-toggle" class="lg:hidden text-white"><i data-lucide="menu"></i></button>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 hover:text-cyan-400">About</a>
-            <a href="#skills" class="block py-2 hover:text-cyan-400">Skills</a>
-            <a href="#experience" class="block py-2 hover:text-cyan-400">Experience</a>
-            <a href="#education" class="block py-2 hover:text-cyan-400">Education</a>
-            <a href="#certificates" class="block py-2 hover:text-cyan-400">Certificates</a>
-            <a href="#contact" class="block mt-2 bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-2 px-4 rounded-lg text-center">Contact Me</a>
-        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="py-20 md:py-32 bg-grid">
-            <div class="container mx-auto px-6 text-center">
-                <div class="flex flex-col items-center">
-                    <img src="Aman.jpg" alt="Aman Kumar Yadav" class="rounded-full w-36 h-36 md:w-48 md:h-48 border-4 border-cyan-400 shadow-lg mb-6 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/150x150/111827/7DD3FC?text=AY';">
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-                        Aman Kumar Yadav
+    <main class="pt-20">
+        <section id="hero" class="min-h-[80vh] flex items-center bg-grid">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-none">
+                        Building <span class="text-gradient">Apps.</span> <br>
+                        Analyzing <span class="text-gradient">Data.</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                        Data-driven Digital Marketing Specialist executing integrated campaigns that drive audience growth and enhance conversion rates.
+                    <p class="text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
+                        Full-Stack Developer and Data Analyst. Bridging the gap between technical architecture and business insights with advanced automation and AI.
                     </p>
-                    <div class="flex flex-wrap justify-center gap-4 text-cyan-300 mb-8">
-                        <span>Patna, Bihar</span> |
-                        <span>+91-7667849017</span> |
-                        <a href="mailto:aman.yadav.marketing@email.com" class="hover:text-cyan-400">aman.yadav.marketing@email.com</a>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="bg-cyan-500 text-slate-950 font-bold px-8 py-4 rounded-xl flex items-center gap-2 hover:bg-cyan-400 transition-all">
+                            View Project Demos <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg transition-transform duration-300 hover:scale-105">Let's Connect</a>
+                </div>
+                <div class="relative reveal flex justify-center" style="transition-delay: 200ms;">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                        <div class="absolute inset-0 bg-cyan-500/20 rounded-full animate-pulse"></div>
+                        <img src="Aman.jpg" alt="Aman Kumar Yadav" 
+                             class="rounded-full w-full h-full object-cover border-8 border-slate-800 shadow-2xl relative z-10"
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x400/1e293b/22d3ee?text=AMAN';">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="py-20 bg-gray-800">
+        <section id="projects" class="py-24">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-4 text-cyan-400">Professional Summary</h2>
-                    <p class="text-gray-300 mb-4">
-                        As a recent BCA graduate and data-driven Digital Marketing Specialist, I have a proven ability to execute integrated campaigns that drive audience growth and enhance conversion rates. I blend creative content strategy with rigorous data analysis to optimize performance across SEO, social media, and email marketing channels.
-                    </p>
-                    <p class="text-gray-300">
-                        Having recently completed the BCG Digital Transformation virtual program, I've applied market research and strategic planning skills to solve real-world business challenges. I am seeking to leverage my expertise in performance analytics and marketing automation to contribute to a forward-thinking marketing team.
-                    </p>
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl font-bold mb-4">Project Showcases</h2>
+                    <p class="text-slate-400">Interactive web applications and data-driven solutions.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-cyan-400">Core Competencies & Proficiencies</h2>
-                    <p class="text-gray-400 mt-2">A blend of creative strategy and technical expertise.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Column 1: Performance Marketing -->
-                    <div class="bg-gray-800 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Performance Marketing</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>SEO/SEM</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>PPC Advertising</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>CRO</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>A/B Testing</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Keyword Research</li>
-                        </ul>
-                    </div>
-                    <!-- Column 2: Content & Social -->
-                    <div class="bg-gray-800 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Content & Social Media</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Content Strategy</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Copywriting</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Social Media Management</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Email Marketing</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Community Engagement</li>
-                        </ul>
-                    </div>
-                    <!-- Column 3: Analytics -->
-                    <div class="bg-gray-800 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Analytics & Strategy</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Data Analysis</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Market Research</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Campaign Planning</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Competitor Analysis</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Customer Journey Mapping</li>
-                        </ul>
-                    </div>
-                     <!-- Column 4: Technology -->
-                     <div class="bg-gray-800 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Marketing Technology</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Google Analytics 4</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Google & Meta Ads</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>HubSpot (Certified)</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>Ahrefs / SEMrush</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-cyan-500"></i>AI Tools (ChatGPT, Jasper)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Experience & Projects Section -->
-        <section id="experience" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-cyan-400">Experience & Projects</h2>
-                    <p class="text-gray-400 mt-2">Applying knowledge to drive real-world results.</p>
-                </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Item 1 -->
-                    <div class="bg-gray-900 rounded-xl overflow-hidden group p-6 flex flex-col">
-                        <h3 class="text-xl font-bold mb-2 text-cyan-400">Marketing Intern</h3>
-                        <p class="text-gray-500 font-medium mb-4">InnovateTech Solutions | Remote (Jun 2024 – Aug 2024)</p>
-                        <ul class="text-gray-400 space-y-2 list-disc list-inside flex-grow">
-                            <li>Analyzed social media metrics, contributing to a 15% follower growth.</li>
-                            <li>Developed content calendar, increasing post consistency by 20%.</li>
-                            <li>Conducted keyword research using SEMrush to inform blog strategy.</li>
-                            <li>Assisted in A/B testing email campaigns, achieving a 35% open rate.</li>
-                        </ul>
+                    <!-- Cafe Landing -->
+                    <div class="group bg-slate-800/50 rounded-3xl overflow-hidden border border-slate-700/50 reveal project-card">
+                        <div class="relative aspect-video overflow-hidden">
+                            <img src="https://placehold.co/600x400/0f172a/22d3ee?text=Cafe+Landing+Demo" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                            <div class="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                                <div class="demo-btn transition-all translate-y-4">
+                                    <p class="text-white mb-4 text-sm">Full responsive layout with CSS animations and ordering flow.</p>
+                                    <a href="https://www.linkedin.com/posts/aman-roy-b3017320b_octanetinternship-octa-octanetsoftwareservices-activity-7161304479693205504-Z5Rr?utm_source=share&utm_medium=member_desktop&rcm=ACoAADU9TZQBGO-yNGuP-U88F-hEfKnKnbaAZp0" target="_blank" class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-full text-sm font-bold inline-block hover:bg-cyan-400 transition-colors">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Cafe Landing Page</h3>
+                            <div class="flex gap-2 mb-4">
+                                <span class="text-[10px] bg-slate-900 text-cyan-400 px-2 py-1 rounded-md font-bold uppercase">Web Design</span>
+                                <span class="text-[10px] bg-slate-900 text-cyan-400 px-2 py-1 rounded-md font-bold uppercase">HTML</span>
+                                <span class="text-[10px] bg-slate-900 text-cyan-400 px-2 py-1 rounded-md font-bold uppercase">CSS</span>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="bg-gray-900 rounded-xl overflow-hidden group p-6 flex flex-col">
-                        <h3 class="text-xl font-bold mb-2 text-cyan-400">BCG Virtual Experience</h3>
-                        <p class="text-gray-500 font-medium mb-4">Forage | October 2025</p>
-                        <ul class="text-gray-400 space-y-2 list-disc list-inside flex-grow">
-                             <li>Conducted market research to inform a new mobile app strategy.</li>
-                            <li>Identified and prioritized key app features to drive customer loyalty.</li>
-                            <li>Applied competitive analysis and creative thinking to solve business challenges.</li>
-                        </ul>
+
+                    <!-- To-Do List -->
+                    <div class="group bg-slate-800/50 rounded-3xl overflow-hidden border border-slate-700/50 reveal project-card" style="transition-delay: 100ms;">
+                        <div class="relative aspect-video overflow-hidden">
+                            <img src="https://placehold.co/600x400/0f172a/818cf8?text=Advanced+To-Do+App" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                            <div class="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                                <div class="demo-btn transition-all translate-y-4">
+                                    <p class="text-white mb-4 text-sm">Task manager with local storage and category tags.</p>
+                                    <a href="https://www.linkedin.com/posts/aman-roy-b3017320b_connection-connectivity-connections-activity-7164724034331402240-gN-t?utm_source=share&utm_medium=member_desktop&rcm=ACoAADU9TZQBGO-yNGuP-U88F-hEfKnKnbaAZp0" target="_blank" class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-full text-sm font-bold inline-block hover:bg-cyan-400 transition-colors">Open App</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Advanced To-Do List</h3>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] bg-slate-900 text-indigo-400 px-2 py-1 rounded-md font-bold uppercase">HTML</span>
+                                <span class="text-[10px] bg-slate-900 text-indigo-400 px-2 py-1 rounded-md font-bold uppercase">CSS</span>
+                                <span class="text-[10px] bg-slate-900 text-indigo-400 px-2 py-1 rounded-md font-bold uppercase">JavaScript</span>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Item 3 -->
-                    <div class="bg-gray-900 rounded-xl overflow-hidden group p-6 flex flex-col">
-                        <h3 class="text-xl font-bold mb-2 text-cyan-400">Personal Blog – "The Digital Compass"</h3>
-                        <p class="text-gray-500 font-medium mb-4">2024 – Present</p>
-                        <ul class="text-gray-400 space-y-2 list-disc list-inside flex-grow">
-                            <li>Manage a blog on digital marketing, attracting over 1,000 unique monthly visitors.</li>
-                            <li>Grew an email list to 250 subscribers with a 45% average open rate.</li>
-                            <li>Utilized on-page SEO best practices and a targeted content strategy.</li>
-                        </ul>
+
+                    <!-- Web Gallery -->
+                    <div class="group bg-slate-800/50 rounded-3xl overflow-hidden border border-slate-700/50 reveal project-card" style="transition-delay: 200ms;">
+                        <div class="relative aspect-video overflow-hidden">
+                            <img src="https://placehold.co/600x400/0f172a/f472b6?text=Image+Gallery+Demo" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                            <div class="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                                <div class="demo-btn transition-all translate-y-4">
+                                    <p class="text-white mb-4 text-sm">Masonry grid with lightbox and filtering features.</p>
+                                    <a href="https://www.linkedin.com/posts/aman-roy-b3017320b_codealpha-webdevelopment-javascript-activity-7297187990009786368-yQSh?utm_source=share&utm_medium=member_desktop&rcm=ACoAADU9TZQBGO-yNGuP-U88F-hEfKnKnbaAZp0" target="_blank" class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-full text-sm font-bold inline-block hover:bg-cyan-400 transition-colors">View Gallery</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Web Image Gallery</h3>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] bg-slate-900 text-pink-400 px-2 py-1 rounded-md font-bold uppercase">UI/UX</span>
+                                <span class="text-[10px] bg-slate-900 text-pink-400 px-2 py-1 rounded-md font-bold uppercase">HTML</span>
+                                <span class="text-[10px] bg-slate-900 text-pink-400 px-2 py-1 rounded-md font-bold uppercase">CSS</span>
+                                <span class="text-[10px] bg-slate-900 text-pink-400 px-2 py-1 rounded-md font-bold uppercase">JAVASCRIPT</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section id="education" class="py-20">
+        <section id="data-projects" class="py-24 bg-slate-900/50 border-y border-slate-800">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-cyan-400">Education</h2>
-                </div>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-center">
-                        <h3 class="text-2xl font-bold text-white mb-2">Bachelor of Computer Applications (BCA)</h3>
-                        <p class="text-lg text-cyan-400 mb-1">Cimage College, Patna</p>
-                        <p class="text-gray-400">2025</p>
+                <h3 class="text-2xl font-bold mb-12 flex items-center gap-3 reveal">
+                    <i data-lucide="bar-chart-big" class="text-cyan-400"></i> Data Analysis Projects
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- E-commerce -->
+                    <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 reveal">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 text-cyan-400">
+                            <i data-lucide="shopping-cart"></i>
+                        </div>
+                        <h4 class="font-bold text-xl mb-3">E-commerce Insights</h4>
+                        <p class="text-slate-400 text-sm mb-6">Analyzing conversion funnels and user drop-off points to optimize retail performance.</p>
+                        <a href="https://github.com/Aman7667/EDU-Dashboard" target="_blank" class="inline-flex items-center gap-2 text-cyan-400 text-sm font-bold hover:underline transition-all">
+                            View Case Study <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-center">
-                        <h3 class="text-2xl font-bold text-white mb-2">BSc Chemistry Honours</h3>
-                        <p class="text-lg text-cyan-400 mb-1">L.P. Shahi College, Patna</p>
-                        <p class="text-gray-400">2020</p>
+                    <!-- Telecom -->
+                    <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 reveal" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 text-indigo-400">
+                            <i data-lucide="smartphone"></i>
+                        </div>
+                        <h4 class="font-bold text-xl mb-3">Telecom Analytics</h4>
+                        <p class="text-slate-400 text-sm mb-6">Churn prediction modeling and revenue leakage analysis for telecom providers.</p>
+                        <a href="https://github.com/Aman7667/EDU-Dashboard" target="_blank" class="inline-flex items-center gap-2 text-indigo-400 text-sm font-bold hover:underline transition-all">
+                            View Case Study <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-center">
-                        <h3 class="text-2xl font-bold text-white mb-2">Intermediate of Science (ISc)</h3>
-                        <p class="text-lg text-cyan-400 mb-1">MMM College, Chhapra</p>
-                        <p class="text-gray-400">2017</p>
-                    </div>
-                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg text-center">
-                        <h3 class="text-2xl font-bold text-white mb-2">High School (10th)</h3>
-                        <p class="text-lg text-cyan-400 mb-1">Mashrakh High School</p>
-                        <p class="text-gray-400">2015</p>
+                    <!-- Health -->
+                    <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 reveal" style="transition-delay: 200ms;">
+                        <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 text-emerald-400">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <h4 class="font-bold text-xl mb-3">Health Sector Viz</h4>
+                        <p class="text-slate-400 text-sm mb-6">Patient data dashboards providing visibility into outcome trends and resource load.</p>
+                        <a href="https://github.com/Aman7667/EDU-Dashboard" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 text-sm font-bold hover:underline transition-all">
+                            View Case Study <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Certificates Section -->
-        <section id="certificates" class="py-20 bg-gray-800">
+        <section id="certificates" class="py-24">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-cyan-400">Certifications</h2>
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl font-bold mb-4 text-gradient">Certifications & Credentials</h2>
+                    <p class="text-slate-400">Specialized technical training across diverse domains.</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <!-- Certificate 1 -->
-                    <div class="bg-gray-900 p-8 rounded-xl text-center flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png" alt="Google Certificate" class="w-24 h-24 mx-auto mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x100/111827/7DD3FC?text=Google';">
-                        <h3 class="text-lg font-semibold text-white">Google Digital Marketing & E-commerce</h3>
+
+                <!-- Web & Programming Category -->
+                <div class="mb-16">
+                    <h3 class="text-xl font-bold mb-8 text-cyan-400 flex items-center gap-2 reveal">
+                        <i data-lucide="code-2"></i> Web Development & Programming
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        <!-- Individual Cert Cards -->
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/22d3ee?text=HTML5" class="rounded-lg mb-3 w-full" alt="HTML">
+                            <p class="text-xs font-bold text-center">HTML Certificate</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all" style="transition-delay: 50ms;">
+                            <img src="https://placehold.co/300x200/1e293b/22d3ee?text=CSS3" class="rounded-lg mb-3 w-full" alt="CSS">
+                            <p class="text-xs font-bold text-center">CSS Certificate</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all" style="transition-delay: 100ms;">
+                            <img src="https://placehold.co/300x200/1e293b/facc15?text=JS" class="rounded-lg mb-3 w-full" alt="JavaScript">
+                            <p class="text-xs font-bold text-center">JavaScript</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all" style="transition-delay: 150ms;">
+                            <img src="https://placehold.co/300x200/1e293b/3b82f6?text=Python" class="rounded-lg mb-3 w-full" alt="Python">
+                            <p class="text-xs font-bold text-center">Python Programming</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all" style="transition-delay: 200ms;">
+                            <img src="https://placehold.co/300x200/1e293b/6366f1?text=PHP" class="rounded-lg mb-3 w-full" alt="PHP">
+                            <p class="text-xs font-bold text-center">PHP Backend</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/ef4444?text=Java" class="rounded-lg mb-3 w-full" alt="Java">
+                            <p class="text-xs font-bold text-center">Java Fundamental</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/3b82f6?text=C+Programming" class="rounded-lg mb-3 w-full" alt="C">
+                            <p class="text-xs font-bold text-center">C Language</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/818cf8?text=C++" class="rounded-lg mb-3 w-full" alt="C++">
+                            <p class="text-xs font-bold text-center">C++ Programming</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/fb7185?text=DSA+in+C" class="rounded-lg mb-3 w-full" alt="DSA">
+                            <p class="text-xs font-bold text-center">DSA (Data Structures)</p>
+                        </div>
                     </div>
-                     <!-- Certificate 2 -->
-                     <div class="bg-gray-900 p-8 rounded-xl text-center flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/HubSpot_Logo.svg/1200px-HubSpot_Logo.svg.png" alt="HubSpot Certificate" class="w-24 h-24 mx-auto mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x100/111827/7DD3FC?text=HubSpot';">
-                        <h3 class="text-lg font-semibold text-white">HubSpot Email Marketing Certified</h3>
+                </div>
+
+                <!-- Data, Office & Visualization Category -->
+                <div class="mb-16">
+                    <h3 class="text-xl font-bold mb-8 text-emerald-400 flex items-center gap-2 reveal">
+                        <i data-lucide="database"></i> Data, Business & Visualization
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/10b981?text=SQL" class="rounded-lg mb-3 w-full" alt="SQL">
+                            <p class="text-xs font-bold text-center">SQL Database</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/22c55e?text=Excel" class="rounded-lg mb-3 w-full" alt="Excel">
+                            <p class="text-xs font-bold text-center">Advanced Excel</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/fbbf24?text=PowerBI" class="rounded-lg mb-3 w-full" alt="PowerBI">
+                            <p class="text-xs font-bold text-center">Power BI / DAX</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/3b82f6?text=Tableau" class="rounded-lg mb-3 w-full" alt="Tableau">
+                            <p class="text-xs font-bold text-center">Tableau Viz</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/60a5fa?text=Word/PPT" class="rounded-lg mb-3 w-full" alt="MS Office">
+                            <p class="text-xs font-bold text-center">MS Office Suite</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/f43f5e?text=n8n+AI" class="rounded-lg mb-3 w-full" alt="Agentic AI">
+                            <p class="text-xs font-bold text-center">Agentic AI (n8n)</p>
+                        </div>
                     </div>
-                     <!-- Certificate 3 -->
-                     <div class="bg-gray-900 p-8 rounded-xl text-center flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Google_Analytics_logo.svg/2560px-Google_Analytics_logo.svg.png" alt="GA4 Certificate" class="w-24 h-24 mx-auto mb-4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x100/111827/7DD3FC?text=GA4';">
-                        <h3 class="text-lg font-semibold text-white">Google Analytics 4 (GA4) Certification</h3>
+                </div>
+
+                <!-- Networking Category -->
+                <div>
+                    <h3 class="text-xl font-bold mb-8 text-indigo-400 flex items-center gap-2 reveal">
+                        <i data-lucide="network"></i> Networking & Infrastructure
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 max-w-4xl">
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/6366f1?text=CCNA" class="rounded-lg mb-3 w-full" alt="CCNA">
+                            <p class="text-xs font-bold text-center">CCNA Fundamentals</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/4f46e5?text=CCNA+" class="rounded-lg mb-3 w-full" alt="CCNA+">
+                            <p class="text-xs font-bold text-center">CCNA+ Advanced</p>
+                        </div>
+                        <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 reveal cert-card transition-all">
+                            <img src="https://placehold.co/300x200/1e293b/4338ca?text=CNI" class="rounded-lg mb-3 w-full" alt="CNI">
+                            <p class="text-xs font-bold text-center">CNI Certified</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-900">
+        <section id="contact" class="py-24 bg-slate-900">
             <div class="container mx-auto px-6">
-                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-cyan-400">Get In Touch</h2>
-                    <p class="text-gray-400 mt-2">Have a project in mind? Let's talk about how I can help you achieve your goals.</p>
-                </div>
-                <div class="max-w-2xl mx-auto">
-                    <!-- Fully functional and styled form -->
-                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-
-                        <!-- Your key has been inserted here -->
-                        <input type="hidden" name="access_key" value="ba682ef2-1d43-4cf8-a22f-f528d0d74112">
-
-                        <!-- Optional settings for the form -->
-                        <input type="hidden" name="subject" value="New Message from Portfolio Website">
-                        <input type="hidden" name="from_name" value="Aman Kumar Yadav Portfolio">
-                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
-                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                        <!-- Styled form fields -->
+                <div class="max-w-4xl mx-auto glass rounded-[2.5rem] p-12 relative overflow-hidden">
+                    <div class="relative z-10 grid md:grid-cols-2 gap-12">
                         <div>
-                            <label for="name" class="sr-only">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Your Name" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300" required>
+                            <h2 class="text-4xl font-bold mb-6">Let's build <br><span class="text-cyan-400">Something Great.</span></h2>
+                            <p class="text-slate-400 mb-8">Ready to discuss a project or opportunity? Drop me a message and I'll get back to you within 24 hours.</p>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 text-slate-300">
+                                    <i data-lucide="mail" class="text-cyan-400"></i>
+                                    <span>kr.aman841417@gmail.com</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-300">
+                                    <i data-lucide="phone" class="text-cyan-400"></i>
+                                    <span>+91-7667849017</span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Your Email" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300" required>
-                        </div>
-                        <div>
-                            <label for="message" class="sr-only">Message</label>
-                            <textarea name="message" id="message" rows="5" placeholder="Your Message" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300" required></textarea>
-                        </div>
-                        <div class="text-center">
-                             <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg transition-transform duration-300 hover:scale-105 w-full md:w-auto">Send Message</button>
-                        </div>
-                    </form>
+                        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                            <input type="hidden" name="access_key" value="ba682ef2-1d43-4cf8-a22f-f528d0d74112">
+                            <input type="text" name="name" placeholder="Name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-5 py-4 text-white outline-none focus:border-cyan-400 transition-all" required>
+                            <input type="email" name="email" placeholder="Email" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-5 py-4 text-white outline-none focus:border-cyan-400 transition-all" required>
+                            <textarea name="message" rows="4" placeholder="Your Message" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-5 py-4 text-white outline-none focus:border-cyan-400 transition-all" required></textarea>
+                            <button type="submit" class="w-full bg-cyan-500 text-slate-950 font-bold py-4 rounded-xl hover:bg-cyan-400 transition-all">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 py-8">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2025 Aman Kumar Yadav. All Rights Reserved.</p>
+    <footer class="py-12 border-t border-slate-800 bg-slate-950">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm">© 2025 Aman Kumar Yadav. Full-Stack Tech Specialist.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
     <script>
         lucide.createIcons();
 
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Reveal animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        menuToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav div.hidden');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex');
+            nav.classList.toggle('flex-col');
+            nav.classList.toggle('absolute');
+            nav.classList.toggle('top-16');
+            nav.classList.toggle('left-0');
+            nav.classList.toggle('w-full');
+            nav.classList.toggle('bg-slate-900');
+            nav.classList.toggle('p-6');
+            nav.classList.toggle('space-y-4');
         });
     </script>
-
 </body>
 </html>
